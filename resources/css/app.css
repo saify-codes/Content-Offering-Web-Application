@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.avatar .camera__cover{
+    clip-path: circle(75% at center 150%);
+    overflow: hidden;
+    transition: .5s ease;
+}
+.avatar:hover .camera__cover{
+    clip-path: circle(100% at center);
+    overflow: hidden;
+}
+.avatar .camera__cover svg{
+    translate: 0 100%;
+    transition: .5s;
+    transition-delay: .3s;
+    opacity: 0;
+}
+.avatar:hover .camera__cover svg{
+    translate: 0 0;
+    opacity: 1;
+}
