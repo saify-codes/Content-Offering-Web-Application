@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('social_accounts', function (Blueprint $table) {
+        Schema::create('content', function (Blueprint $table) {
             $table->id();
-            $table->string('facebook')->nullable();
-            $table->string('twitter')->nullable();
-            $table->string('google')->nullable();
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->enum('type',['VIDEO','IMAGE','DOCUMENT']);
+            $table->string('filename');
+            $table->float('price');
+            $table->string('license');
+            $table->date('duration');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
             ->references('id')
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('social_accounts');
+        Schema::dropIfExists('content');
     }
 };

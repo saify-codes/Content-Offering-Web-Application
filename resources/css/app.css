@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* profile.blade.php styles */
 .avatar .camera__cover{
     clip-path: circle(75% at center 150%);
     overflow: hidden;
@@ -21,3 +22,15 @@
     translate: 0 0;
     opacity: 1;
 }
+
+/* profile.blade.php styles */
+
+/* create.blade.php styles */
+.drop__area[data-mode="preview"] #upload {
+    display: none;
+}
+
+.drop__area[data-mode="preview"] #preview {
+    display: block;
+}
+/* create.blade.php styles */

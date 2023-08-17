@@ -1,0 +1,3 @@
+@livewireStyles
+@livewire('test')
+@livewireScripts

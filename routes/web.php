@@ -20,11 +20,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/test', function () {
+    return view('test');
+});
+
+
+Route::middleware(['auth','verified'])->group(function(){
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
+    Route::view('/create/video', 'create')->name('create.video');
+    Route::view('/create/image', 'create')->name('create.image');
+    Route::view('/create/document', 'create')->name('create.document');
+    Route::view('/create/upload', 'create')->name('create.upload');
+    Route::fallback(fn()=>view('/dashboard'));
+});
+
+
 
 Route::middleware('auth')->group(function () {
+
+
+
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::patch('/profile/social', [ProfileController::class, 'update_social_account'])->name('social.update');
