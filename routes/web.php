@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ProfileController;
 use App\Models\SocialAccounts;
 use App\Models\User;
@@ -27,10 +28,14 @@ Route::get('/test', function () {
 
 Route::middleware(['auth','verified'])->group(function(){
     Route::view('/dashboard', 'dashboard')->name('dashboard');
-    Route::view('/create/video', 'create')->name('create.video');
-    Route::view('/create/image', 'create')->name('create.image');
-    Route::view('/create/document', 'create')->name('create.document');
+    // Route::view('/create/video', 'create')->name('create.video');
+    // Route::view('/create/image', 'create')->name('create.image');
+    // Route::view('/create/document', 'create')->name('create.document');
+    
     Route::view('/create/upload', 'create')->name('create.upload');
+    Route::get('/create/video',[ContentController::class, 'show'])->name('create.video');
+    Route::get('/create/image',[ContentController::class, 'show'])->name('create.image');
+    Route::get('/create/document',[ContentController::class, 'show'])->name('create.document');
     Route::fallback(fn()=>view('/dashboard'));
 });
 

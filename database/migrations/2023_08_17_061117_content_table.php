@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->enum('type',['VIDEO','IMAGE','DOCUMENT']);
-            $table->string('filename');
+            $table->string('filepath');
             $table->float('price');
-            $table->string('license');
-            $table->date('duration');
+            $table->integer('duration');
+            $table->boolean('has_subscription')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
             ->references('id')
