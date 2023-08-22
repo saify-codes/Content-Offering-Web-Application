@@ -32,10 +32,10 @@ class Fileupload extends Component
         $this->validateOnly($field);
     }
 
-    public function subscription(){
-        $this->subscription = !$this->subscription;
-        // dd("here");
-    }
+    // public function subscription(){
+    //     $this->subscription = !$this->subscription;
+    //     // dd("here");
+    // }
 
     public function save()
     {
