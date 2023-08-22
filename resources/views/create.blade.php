@@ -63,7 +63,7 @@
                                 @foreach ($images as $image)
                                     <div class="item flex mb-5 gap-5 p-4 rounded-lg border">
                                         <div class="media">
-                                            <img class="w-20 h-20 rounded-lg"
+                                            <img class="w-20 h-20 rounded-lg object-cover"
                                                 src="{{ asset('storage/' . $image->filepath) }}" alt="image">
                                         </div>
                                         <div class="content">

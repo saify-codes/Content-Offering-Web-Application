@@ -28,9 +28,6 @@ Route::get('/test', function () {
 
 Route::middleware(['auth','verified'])->group(function(){
     Route::view('/dashboard', 'dashboard')->name('dashboard');
-    // Route::view('/create/video', 'create')->name('create.video');
-    // Route::view('/create/image', 'create')->name('create.image');
-    // Route::view('/create/document', 'create')->name('create.document');
     
     Route::view('/create/upload', 'create')->name('create.upload');
     Route::get('/create/video',[ContentController::class, 'show'])->name('create.video');

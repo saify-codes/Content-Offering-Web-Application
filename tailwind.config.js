@@ -13,7 +13,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: { 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" }
+                primary: { 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" },
+                secondary: { 500: "#f16636", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81" }
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
