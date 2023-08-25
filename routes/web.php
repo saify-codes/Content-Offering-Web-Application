@@ -17,18 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/test', function () {
-    return view('test');
-});
+Route::view('/','pages.index');
+Route::view('/content','pages.content');
 
 
 Route::middleware(['auth','verified'])->group(function(){
     Route::view('/dashboard', 'dashboard')->name('dashboard');
-    
     Route::view('/create/upload', 'create')->name('create.upload');
     Route::get('/create/video',[ContentController::class, 'show'])->name('create.video');
     Route::get('/create/image',[ContentController::class, 'show'])->name('create.image');
@@ -37,13 +32,7 @@ Route::middleware(['auth','verified'])->group(function(){
 });
 
 
-
 Route::middleware('auth')->group(function () {
-
-
-
-
-
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::patch('/profile/social', [ProfileController::class, 'update_social_account'])->name('social.update');
