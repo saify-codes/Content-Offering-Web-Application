@@ -1,11 +1,10 @@
 <div>
-    <form wire:submit.prevent="save" novalidate>
-
+    <form wire:submit.prevent="upload">
 
         <div class="mb-6">
             <label for="file" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">File<span
                     class="text-red-500">*</span></label>
-            <input type="file" class="p-2.5 ring-0" id="file" name="file" required wire:model="file">
+            <input type="file" class="p-2.5 ring-0" id="file" name="file" wire:model="file">
             <x-input-error :messages="$errors->get('file')" class="mt-2" />
         </div>
 
@@ -15,15 +14,15 @@
                     class="text-red-500">*</span></label>
             <input type="text" id="title" name="title"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                required placeholder="e.g. Funky" wire:model="title">
+                placeholder="e.g. Funky" wire:model="title">
             <x-input-error :messages="$errors->get('title')" class="mt-2" />
         </div>
 
         <div class="mb-6">
             <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price<span class="text-red-500">*</span></label>
             <div class="flex items-center flex-wrap justify-between gap-5">
-                <input type="number" min="0" id="title" class="md:basis-3/4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required placeholder="$0 - $1000" wire:model="price">
-                {{--  --}}
+                <input type="number" min="0" id="title" class="md:basis-3/4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="$0 - $1000" wire:model="price">
+
                 <label class="relative inline-flex items-center cursor-pointer" >
                     <input type="checkbox" name="subscription" class="sr-only peer" value="1"  wire:model="subscription">
                     <div
@@ -47,11 +46,8 @@
                         Allow auto renewal subscription
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
-                
-                    {{-- <button type="button" >chnage</button> --}}
                 </label>
                 
-                {{--  --}}
             </div>
             <x-input-error :messages="$errors->get('price')" class="mt-2" />
             
@@ -62,7 +58,7 @@
                     class="text-red-500">*</span></label>
             <input type="number" min="1" id="title"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                required placeholder="duration in days" wire:model="duration">
+                placeholder="duration in days" wire:model="duration">
             <x-input-error :messages="$errors->get('duration')" class="mt-2" />
         </div>
 
@@ -82,8 +78,6 @@
         <button type="submit"
             class="text-white bg-primary-500 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Submit</button>
 
-
     </form>
-
 
 </div>

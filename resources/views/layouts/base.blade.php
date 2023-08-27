@@ -68,12 +68,18 @@
                 </a>
                 <div class="flex items-center lg:order-2">
                     <ul class="flex items-center font-medium space-x-4">
-                        <li>
-                            <x-nav-link :href="route('login')">Login</x-nav-link>
-                        </li>
-                        <li>
-                            <x-nav-link-block :href="route('register')">Register</x-nav-link-block>
-                        </li>
+                        @auth
+                            <li>
+                                <x-nav-link-block :href="route('dashboard')">Dashboard</x-nav-link-block>
+                            </li>
+                        @else
+                            <li>
+                                <x-nav-link :href="route('login')">Login</x-nav-link>
+                            </li>
+                            <li>
+                                <x-nav-link-block :href="route('register')">Register</x-nav-link-block>
+                            </li>
+                        @endauth
                     </ul>
 
                     <button data-collapse-toggle="mobile-menu-2" type="button"

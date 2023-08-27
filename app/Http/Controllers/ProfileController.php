@@ -51,8 +51,6 @@ class ProfileController extends Controller
      */
     public function update_social_account(SocialMediaUpdateRequest $request): RedirectResponse
     {
-        // dd($request->validated());
-
         $user = $request->user();
 
         if ($user->social_media_account) {

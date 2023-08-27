@@ -14,15 +14,18 @@
                     <div class="container mt-5">
                         @if (request()->routeIs('create.upload'))
                             <div class="upload">
-                                @livewire('fileupload')
+                                @livewire('upload')
                             </div>
                         @elseif(request()->routeIs('create.video'))
-                            <div class="wrapper">
+                            <div class="wrapper relative z-10">
                                 @if (count($videos) === 0)
                                     <p class="text-sm font-bold text-center">No videos to show</p>
                                 @endif
                                 @foreach ($videos as $video)
                                     <div class="item flex mb-5 gap-5 p-4 rounded-2xl border">
+                                        @if ($video->has_subscription)
+                                            <div class="subscription__tag"></div>
+                                        @endif
                                         <div class="media relative">
                                             <video class="w-20 h-20 rounded-lg object-cover" preload="metadata">
                                                 <source src="{{ asset('storage/' . $video->filepath) }}">
@@ -38,9 +41,6 @@
                                             </div>
                                         </div>
                                         <div class="content">
-                                            @if ($video->has_subscription)
-                                                <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">subscription</span>
-                                            @endif
                                             <h1 class="font-bold text-xl capitalize">{{ $video->title }}</h1>
                                             @php
                                                 $content = substr($video->description, 0, 100);
@@ -56,20 +56,20 @@
                                 @endforeach
                             </div>
                         @elseif(request()->routeIs('create.image'))
-                            <div class="wrapper">
+                            <div class="wrapper relative z-10">
                                 @if (count($images) === 0)
                                     <p class="text-sm font-bold text-center">No images to show</p>
                                 @endif
                                 @foreach ($images as $image)
-                                    <div class="item flex mb-5 gap-5 p-4 rounded-lg border">
+                                    <div class="item bg-white flex mb-5 gap-5 p-4 rounded-lg border relative">
+                                        @if ($image->has_subscription)
+                                            <div class="subscription__tag"></div>
+                                        @endif
                                         <div class="media">
                                             <img class="w-20 h-20 rounded-lg object-cover"
                                                 src="{{ asset('storage/' . $image->filepath) }}" alt="image">
                                         </div>
                                         <div class="content">
-                                            @if ($image->has_subscription)
-                                                <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">subscription</span>
-                                            @endif
                                             <h1 class="font-bold text-xl capitalize">{{ $image->title }}</h1>
                                             @php
                                                 $content = substr($image->description, 0, 100);
@@ -85,20 +85,20 @@
                                 @endforeach
                             </div>
                         @elseif(request()->routeIs('create.document'))
-                            <div class="wrapper">
+                            <div class="wrapper relative z-10">
                                 @if (count($documents) === 0)
                                     <p class="text-sm font-bold text-center">No documnets to show</p>
                                 @endif
                                 @foreach ($documents as $document)
                                     <div class="item flex mb-5 gap-5 p-4 rounded-lg border">
+                                        @if ($document->has_subscription)
+                                            <div class="subscription__tag"></div>
+                                        @endif
                                         <div class="media">
                                             <img class="w-20 h-20 rounded-lg" src="{{ asset('icons/file.png') }}"
                                                 alt="document">
                                         </div>
                                         <div class="content">
-                                            @if ($document->has_subscription)
-                                                <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">subscription</span>
-                                            @endif
                                             <h1 class="font-bold text-xl capitalize">{{ $document->title }}</h1>
                                             @php
                                                 $content = substr($document->description, 0, 100);
@@ -115,9 +115,6 @@
                             </div>
                         @endif
                     </div>
-
-
-
                 </div>
             </div>
         </div>
