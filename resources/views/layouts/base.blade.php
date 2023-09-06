@@ -10,7 +10,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 
 </head>
 
@@ -119,7 +121,7 @@
         </nav>
     </header>
     <main>
-        @yield('main')
+        {{$slot}}
     </main>
     <footer class="bg-white ">
         <div class="mx-auto max-w-screen-xl px-4 py-16">
@@ -392,6 +394,7 @@
             </div>
         </div>
     </footer>
+    @livewireScripts
 </body>
 
 </html>

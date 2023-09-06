@@ -7,6 +7,11 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
+// disable contextmenu
+window.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
+
 
 /* upload.blade.php */
 

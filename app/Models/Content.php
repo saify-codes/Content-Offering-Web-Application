@@ -9,7 +9,6 @@ class Content extends Model
 {
     use HasFactory;
 
-    public $table = 'content';
     public $timestamps = false;
     
     protected $fillable = [
@@ -25,6 +24,9 @@ class Content extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function licence(){
+        return $this->hasMany(Licence::class);
     }
 
 }

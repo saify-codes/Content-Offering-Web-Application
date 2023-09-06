@@ -22,7 +22,7 @@
                                     <p class="text-sm font-bold text-center">No videos to show</p>
                                 @endif
                                 @foreach ($videos as $video)
-                                    <div class="item flex mb-5 gap-5 p-4 rounded-2xl border">
+                                    <div class="item bg-white flex mb-5 gap-5 p-4 rounded-2xl border">
                                         @if ($video->has_subscription)
                                             <div class="subscription__tag"></div>
                                         @endif
@@ -90,7 +90,7 @@
                                     <p class="text-sm font-bold text-center">No documnets to show</p>
                                 @endif
                                 @foreach ($documents as $document)
-                                    <div class="item flex mb-5 gap-5 p-4 rounded-lg border">
+                                    <div class="item bg-white flex mb-5 gap-5 p-4 rounded-lg border">
                                         @if ($document->has_subscription)
                                             <div class="subscription__tag"></div>
                                         @endif

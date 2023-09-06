@@ -28,10 +28,8 @@ class ContentController extends Controller
                 print "default";
         }
     }
-    public function video()
-    {
-        $user = Auth::user()->id;
-        $videos = Content::where([['user_id', $user], ['type', 1]])->get();
-        return view('create')->with('videos', $videos);
+    
+    public function serve($id){
+        
     }
 }
